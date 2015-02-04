@@ -1,0 +1,47 @@
+/*
+ * iExpression.hpp
+ *
+ *  Created on: 4 févr. 2015
+ *      Author: lopez
+ */
+
+#ifndef IEXPRESSION_HPP_
+#define IEXPRESSION_HPP_
+
+#include <map>
+#include <memory>
+#include <set>
+
+#include "utils/noncopiable.hpp"
+
+#include "variable.hpp"
+
+class iExpression : private utils::noncopiable
+{
+public:
+	using expression_up = std::unique_ptr<iExpression>;
+
+	virtual ~iExpression() = default;
+
+	std::size_t variableCount() const;
+
+	std::set<Variable> variableList() const;
+
+	expression_up derivative(const Variable& variable) const;
+
+	using map_values_t = std::map<Variable, double>;
+	double compute(const map_values_t& values) const;
+
+protected:
+	iExpression() = default;
+
+private:
+	virtual std::set<Variable> impl_variableList() const = 0;
+
+	virtual expression_up impl_derivative(const Variable& variable) const = 0;
+
+	virtual double impl_compute(const map_values_t& values) const = 0;
+
+};
+
+#endif /* IEXPRESSION_HPP_ */
