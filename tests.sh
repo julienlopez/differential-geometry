@@ -14,6 +14,7 @@ echo "running baseline"
 lcov --capture --initial $DIR_OPTIONS --output-file app.baseline #>> lcov.log 2>> lcov.err
 
 bin/tests
+[ $? -ne 0 ] && exit 1
 
 echo "analyzing coverage data...: lcov --no-checksum $DIR_OPTIONS --capture --output-file app"
 lcov --no-checksum $DIR_OPTIONS --capture --output-file app #>> lcov.log 2>> lcov.err
