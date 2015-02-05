@@ -1,6 +1,4 @@
-Debug
-cov-html
-tests/*
-!tests/makefile
-
-app*
+bin
+build
+build_tests
+.idea
