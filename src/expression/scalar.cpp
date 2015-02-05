@@ -9,6 +9,8 @@
 
 #include "utils/make_unique.hpp"
 
+#include <iostream>
+
 Scalar::Scalar(double value_) noexcept : m_value(value_)
 {}
 
@@ -30,4 +32,9 @@ auto Scalar::impl_derivative(const Variable&) const -> expression_up
 double Scalar::impl_compute(const map_values_t&) const
 {
 	return m_value;
+}
+
+void Scalar::impl_display(std::ostream& o) const
+{
+    o << m_value;
 }

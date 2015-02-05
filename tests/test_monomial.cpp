@@ -68,6 +68,13 @@ TEST_F(TestMonomialPowerOfOne, ThrowIfValueWithoutGoodVariable)
 	ASSERT_THROW(m.compute({{Variable("a"), 5}}), std::invalid_argument);
 }
 
+TEST_F(TestMonomialPowerOfOne, Display)
+{
+    std::ostringstream ss;
+    m.display(ss);
+    ASSERT_EQ("20.1x", ss.str());
+}
+
 struct TestMonomialPowerOfTwo : public ::testing::Test
 {
 	const double factor = {10};
@@ -90,4 +97,11 @@ TEST_F(TestMonomialPowerOfTwo, Value)
 {
 	const double value = 5;
 	ASSERT_EQ(factor * std::pow(value, power), m.compute({{variable, value}}));
+}
+
+TEST_F(TestMonomialPowerOfTwo, Display)
+{
+    std::ostringstream ss;
+    m.display(ss);
+    ASSERT_EQ("10x^2", ss.str());
 }

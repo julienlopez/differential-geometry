@@ -24,11 +24,11 @@ struct TestPolynomialOneVariable : public ::testing::Test
 private:
 	Sum createSum()
 	{
-		Sum sum;
-		sum.add(utils::make_unique<Scalar>(3));
-		sum.add(utils::make_unique<Monomial>(variable));
-		sum.add(utils::make_unique<Monomial>(variable, 5, 2));
-		return sum;
+		Sum s;
+		s.add(utils::make_unique<Scalar>(3));
+		s.add(utils::make_unique<Monomial>(variable));
+		s.add(utils::make_unique<Monomial>(variable, 5, 2));
+		return s;
 	}
 };
 
@@ -54,5 +54,12 @@ TEST_F(TestPolynomialOneVariable, DerivativeSameVariable)
 	const auto e = sum.derivative(variable);
 	const auto* s2 = dynamic_cast<Sum*>(e.get());
 	ASSERT_TRUE(s2);
-	ASSERT_EQ(1 + 5*9, s2->compute({{variable, 9}}));
+	ASSERT_EQ(1 + 2*5*9, s2->compute({{variable, 9}}));
+}
+
+TEST_F(TestPolynomialOneVariable, Display)
+{
+    std::ostringstream ss;
+    sum.display(ss);
+    ASSERT_EQ("3 + x + 5x^2", ss.str());
 }

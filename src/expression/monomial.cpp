@@ -11,6 +11,7 @@
 #include "utils/make_unique.hpp"
 
 #include <cmath>
+#include <iostream>
 
 Monomial::Monomial(Variable variable_, double factor_, double power_):
 	m_variable(variable_), m_factor(factor_), m_power(power_)
@@ -39,9 +40,9 @@ std::set<Variable> Monomial::impl_variableList() const
 	return std::set<Variable>{{m_variable}};
 }
 
-auto Monomial::impl_derivative(const Variable& variable) const -> expression_up
+auto Monomial::impl_derivative(const Variable& var) const -> expression_up
 {
-	if(variable != m_variable) return utils::make_unique<Monomial>(*this);
+	if(var != m_variable) return utils::make_unique<Monomial>(*this);
 	if(m_power == 1) return utils::make_unique<Scalar>(m_factor);
 	return utils::make_unique<Monomial>(m_variable, m_factor * m_power, m_power-1);
 }
@@ -54,4 +55,15 @@ double Monomial::impl_compute(const map_values_t& values) const
 		throw std::invalid_argument("unable to find variable `" + m_variable.name + "` in varibale list");
 	}
 	return m_factor * std::pow(it->second, m_power);
+}
+
+void Monomial::impl_display(std::ostream& o) const
+{
+    if(m_factor != 1)
+    {
+        o << m_factor;
+    }
+    o << m_variable.name;
+    if(m_power == 1) return;
+    o << "^" << m_power;
 }

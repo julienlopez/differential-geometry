@@ -8,6 +8,7 @@
 #ifndef IEXPRESSION_HPP_
 #define IEXPRESSION_HPP_
 
+#include <iosfwd>
 #include <map>
 #include <memory>
 #include <set>
@@ -32,6 +33,8 @@ public:
 	using map_values_t = std::map<Variable, double>;
 	double compute(const map_values_t& values) const;
 
+    void display(std::ostream& o) const;
+
 protected:
 	iExpression() = default;
 
@@ -41,6 +44,8 @@ private:
 	virtual expression_up impl_derivative(const Variable& variable) const = 0;
 
 	virtual double impl_compute(const map_values_t& values) const = 0;
+
+    virtual void impl_display(std::ostream& o) const = 0;
 
 };
 

@@ -26,3 +26,8 @@ double iExpression::compute(const map_values_t& values) const
 {
 	return impl_compute(values);
 }
+
+void  iExpression::display(std::ostream& o) const
+{
+    return impl_display(o);
+}

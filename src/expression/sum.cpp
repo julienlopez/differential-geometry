@@ -10,6 +10,8 @@
 
 #include "utils/make_unique.hpp"
 
+#include <sstream>
+
 Sum::Sum()
 {}
 
@@ -54,5 +56,19 @@ double Sum::impl_compute(const map_values_t& values) const
 	for(const auto& value : m_parts)
 		res += value->compute(values);
 	return res;
+}
+
+void Sum::impl_display(std::ostream& o) const
+{
+    static const std::string separator = " + ";
+    std::ostringstream res;
+    for(const auto& value : m_parts)
+    {
+        value->display(res);
+        res << separator;
+    }
+    auto str = res.str();
+    str.erase(str.size() - separator.size());
+    o << str;
 }
 
