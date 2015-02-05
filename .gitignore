@@ -2,3 +2,6 @@ bin
 build
 build_tests
 .idea
+
+cov-html
+app*

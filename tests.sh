@@ -1,5 +1,5 @@
 #!/bin/bash
-DIR_OPTIONS="--base-directory tests --directory tests/expression"
+DIR_OPTIONS="--base-directory src --directory build_tests/CMakeFiles/tests.dir"
 
 function error_exit
 {
@@ -13,9 +13,9 @@ lcov --zerocounters $DIR_OPTIONS #> lcov.log 2> lcov.err
 echo "running baseline"
 lcov --capture --initial $DIR_OPTIONS --output-file app.baseline #>> lcov.log 2>> lcov.err
 
-tests/geom-diff
+bin/tests
 
-echo "analyzing coverage data...: lcov --no-checksum $DIR_OPTIONS --no-external --capture --output-file app"
+echo "analyzing coverage data...: lcov --no-checksum $DIR_OPTIONS --capture --output-file app"
 lcov --no-checksum $DIR_OPTIONS --capture --output-file app #>> lcov.log 2>> lcov.err
 #lcov --no-checksum $DIR_OPTIONS --no-external --capture --output-file app.info
 
