@@ -15,6 +15,7 @@ lcov $DIR_OPTIONS --capture --output-file app.info
 
 echo "removing useless data"
 lcov --remove app.info "/usr*" --output-file app.info
+lcov --remove app.info "tests/*" --output-file app.info
 
 echo "generation html doc"
 genhtml -o cov-html app.info #>> lcov.log 2>> lcov.err
