@@ -77,6 +77,14 @@ TEST_F(TestCosineOfScalar, Display)
     ASSERT_EQ("cos(10)", ss.str());
 }
 
+TEST_F(TestCosineOfScalar, Derivative)
+{
+    const auto d = c.derivative(Variable("a"));
+    std::ostringstream ss;
+    d->display(ss);
+    ASSERT_EQ("0", ss.str());
+}
+
 struct TestCosineOfMonomial : public ::testing::Test
 {
     const Variable var {"t"};
@@ -99,4 +107,20 @@ TEST_F(TestCosineOfMonomial, Display)
     std::ostringstream ss;
     c.display(ss);
     ASSERT_EQ("cos(10t)", ss.str());
+}
+
+TEST_F(TestCosineOfMonomial, DerivativeSameVariable)
+{
+    const auto d = c.derivative(var);
+    std::ostringstream ss;
+    d->display(ss);
+    ASSERT_EQ("10 * sin(10t)", ss.str());
+}
+
+TEST_F(TestCosineOfMonomial, DerivativeOtherVariable)
+{
+    const auto d = c.derivative(Variable("a"));
+    std::ostringstream ss;
+    d->display(ss);
+    ASSERT_EQ("0", ss.str());
 }

@@ -1,5 +1,10 @@
 #include "cosine.hpp"
 
+#include "sine.hpp"
+
+#include "../multiplication.hpp"
+#include "../scalar.hpp"
+
 #include <cassert>
 #include <cmath>
 #include <iostream>
@@ -16,7 +21,13 @@ std::set<Variable> Cosine::impl_variableList() const
 
 auto Cosine::impl_derivative(const Variable& variable) const -> expression_up
 {
-
+    auto der = m_expression->derivative(variable);
+    const auto* p = dynamic_cast<Scalar*>(der.get());
+    if(p && p->value() == 0) return std::make_unique<Scalar>(0);
+    auto res = std::make_unique<Multiplication>();
+    res->add(std::move(der));
+    res->add(std::make_unique<Sine>(m_expression->clone()));
+    return std::move(res);
 }
 
 double Cosine::impl_compute(const map_values_t& values) const
