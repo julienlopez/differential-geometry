@@ -10,8 +10,6 @@ public:
 	Sum();
 	virtual ~Sum() = default;
 
-	Sum(Sum&& s);
-
 	void add(expression_up expr);
 
 private:

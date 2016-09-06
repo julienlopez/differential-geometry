@@ -6,9 +6,6 @@
 Sum::Sum()
 {}
 
-Sum::Sum(Sum&& s): m_parts(std::move(s.m_parts))
-{}
-
 void Sum::add(expression_up expr)
 {
 	m_parts.push_back(std::move(expr));

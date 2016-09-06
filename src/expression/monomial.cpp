@@ -28,7 +28,7 @@ double Monomial::power() const
 
 std::set<Variable> Monomial::impl_variableList() const
 {
-	return std::set<Variable>{{m_variable}};
+	return {m_variable};
 }
 
 auto Monomial::impl_derivative(const Variable& var) const -> expression_up
