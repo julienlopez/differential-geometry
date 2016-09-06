@@ -33,7 +33,7 @@ std::set<Variable> Monomial::impl_variableList() const
 
 auto Monomial::impl_derivative(const Variable& var) const -> expression_up
 {
-	if(var != m_variable) return std::make_unique<Monomial>(*this);
+	if(var != m_variable) return std::make_unique<Scalar>(0);
 	if(m_power == 1) return std::make_unique<Scalar>(m_factor);
 	return std::make_unique<Monomial>(m_variable, m_factor * m_power, m_power-1);
 }
@@ -57,4 +57,9 @@ void Monomial::impl_display(std::ostream& o) const
     o << m_variable.name;
     if(m_power == 1) return;
     o << "^" << m_power;
+}
+
+auto Monomial::impl_clone() const -> expression_up
+{
+	return std::make_unique<Monomial>(*this);
 }

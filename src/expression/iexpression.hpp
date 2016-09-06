@@ -27,6 +27,8 @@ public:
 
     void display(std::ostream& o) const;
 
+	expression_up clone() const;
+
 protected:
 	iExpression() = default;
 
@@ -38,5 +40,7 @@ private:
 	virtual double impl_compute(const map_values_t& values) const = 0;
 
     virtual void impl_display(std::ostream& o) const = 0;
+
+	virtual expression_up impl_clone() const = 0;
 
 };

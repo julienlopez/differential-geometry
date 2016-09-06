@@ -29,3 +29,8 @@ void Scalar::impl_display(std::ostream& o) const
 {
     o << m_value;
 }
+
+auto Scalar::impl_clone() const -> expression_up
+{
+	return std::make_unique<Scalar>(m_value);
+}
