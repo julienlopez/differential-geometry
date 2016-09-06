@@ -24,3 +24,8 @@ void  iExpression::display(std::ostream& o) const
 {
     return impl_display(o);
 }
+
+auto iExpression::clone() const -> expression_up
+{
+	return impl_clone();
+}

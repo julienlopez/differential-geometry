@@ -30,3 +30,8 @@ void Sine::impl_display(std::ostream& o) const
     m_expression->display(o);
     o << ")";
 }
+
+auto Sine::impl_clone() const -> expression_up
+{
+    return std::make_unique<Sine>(m_expression->clone());
+}

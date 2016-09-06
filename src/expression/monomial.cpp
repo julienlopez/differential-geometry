@@ -58,3 +58,8 @@ void Monomial::impl_display(std::ostream& o) const
     if(m_power == 1) return;
     o << "^" << m_power;
 }
+
+auto Monomial::impl_clone() const -> expression_up
+{
+	return std::make_unique<Monomial>(*this);
+}

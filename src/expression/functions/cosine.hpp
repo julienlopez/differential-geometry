@@ -25,4 +25,7 @@ private:
     virtual double impl_compute(const map_values_t& values) const override;
 
     virtual void impl_display(std::ostream& o) const override;
+
+    virtual expression_up impl_clone() const override;
+
 };
