@@ -1,12 +1,4 @@
-/*
- * sum.hpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
-#ifndef SUM_HPP_
-#define SUM_HPP_
+#pragma once
 
 #include "iexpression.hpp"
 
@@ -33,5 +25,3 @@ private:
 
     virtual void impl_display(std::ostream& o) const override;
 };
-
-#endif /* SUM_HPP_ */

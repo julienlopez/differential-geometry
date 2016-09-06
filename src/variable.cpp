@@ -1,10 +1,3 @@
-/*
- * variable.cpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
 #include "variable.hpp"
 
 Variable::Variable(std::string name_) noexcept : name(std::move(name_))

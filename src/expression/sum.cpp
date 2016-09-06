@@ -1,14 +1,5 @@
-/*
- * sum.cpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
 #include "sum.hpp"
 #include "scalar.hpp"
-
-#include "utils/make_unique.hpp"
 
 #include <sstream>
 
@@ -36,7 +27,7 @@ std::set<Variable> Sum::impl_variableList() const
 
 auto Sum::impl_derivative(const Variable& variable) const -> expression_up
 {
-	auto res = utils::make_unique<Sum>();
+	auto res = std::make_unique<Sum>();
 	for(const auto& value : m_parts)
 	{
 		auto deriv = value->derivative(variable);

@@ -1,12 +1,4 @@
-/*
- * Monomial.hpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
-#ifndef MONOMIAL_HPP_
-#define MONOMIAL_HPP_
+#pragma once
 
 #include "iexpression.hpp"
 
@@ -35,5 +27,3 @@ private:
 
     virtual void impl_display(std::ostream& o) const override;
 };
-
-#endif /* MONOMIAL_HPP_ */

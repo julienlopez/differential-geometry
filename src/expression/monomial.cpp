@@ -1,14 +1,5 @@
-/*
- * Monomial.cpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
 #include "monomial.hpp"
 #include "scalar.hpp"
-
-#include "utils/make_unique.hpp"
 
 #include <cmath>
 #include <iostream>
@@ -42,9 +33,9 @@ std::set<Variable> Monomial::impl_variableList() const
 
 auto Monomial::impl_derivative(const Variable& var) const -> expression_up
 {
-	if(var != m_variable) return utils::make_unique<Monomial>(*this);
-	if(m_power == 1) return utils::make_unique<Scalar>(m_factor);
-	return utils::make_unique<Monomial>(m_variable, m_factor * m_power, m_power-1);
+	if(var != m_variable) return std::make_unique<Monomial>(*this);
+	if(m_power == 1) return std::make_unique<Scalar>(m_factor);
+	return std::make_unique<Monomial>(m_variable, m_factor * m_power, m_power-1);
 }
 
 double Monomial::impl_compute(const map_values_t& values) const

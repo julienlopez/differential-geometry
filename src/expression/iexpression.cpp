@@ -1,10 +1,3 @@
-/*
- * iExpression.cpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
 #include "iexpression.hpp"
 
 std::size_t iExpression::variableCount() const

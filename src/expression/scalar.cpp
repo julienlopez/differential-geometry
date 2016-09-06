@@ -1,13 +1,4 @@
-/*
- * scalar.cpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
 #include "scalar.hpp"
-
-#include "utils/make_unique.hpp"
 
 #include <iostream>
 
@@ -26,7 +17,7 @@ std::set<Variable> Scalar::impl_variableList() const
 
 auto Scalar::impl_derivative(const Variable&) const -> expression_up
 {
-	return utils::make_unique<Scalar>(0);
+	return std::make_unique<Scalar>(0);
 }
 
 double Scalar::impl_compute(const map_values_t&) const

@@ -1,17 +1,8 @@
-/*
- * test_polynomial.cpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
 #include <gtest/gtest.h>
 
 #include "expression/monomial.hpp"
 #include "expression/scalar.hpp"
 #include "expression/sum.hpp"
-
-#include "utils/make_unique.hpp"
 
 struct TestPolynomialOneVariable : public ::testing::Test
 {
@@ -25,9 +16,9 @@ private:
 	Sum createSum()
 	{
 		Sum s;
-		s.add(utils::make_unique<Scalar>(3));
-		s.add(utils::make_unique<Monomial>(variable));
-		s.add(utils::make_unique<Monomial>(variable, 5, 2));
+		s.add(std::make_unique<Scalar>(3));
+		s.add(std::make_unique<Monomial>(variable));
+		s.add(std::make_unique<Monomial>(variable, 5, 2));
 		return s;
 	}
 };

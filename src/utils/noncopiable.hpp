@@ -1,12 +1,4 @@
-/*
- * noncopiable.hpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
-#ifndef NONCOPIABLE_HPP_
-#define NONCOPIABLE_HPP_
+#pragma once
 
 namespace utils {
 
@@ -23,5 +15,3 @@ struct noncopiable
 };
 
 }
-
-#endif /* NONCOPIABLE_HPP_ */

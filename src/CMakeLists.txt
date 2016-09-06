@@ -4,7 +4,7 @@ project(differential-geometry)
 
 set(EXECUTABLE_OUTPUT_PATH ../bin)
 
-ADD_DEFINITIONS(-std=c++11 -g -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-declarations -Wredundant-decls -Winline -Wno-long-long -Wuninitialized -Wconversion)
+ADD_DEFINITIONS(-std=c++14 -g -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-declarations -Wredundant-decls -Winline -Wno-long-long -Wuninitialized -Wconversion)
 SET(CMAKE_EXE_LINKER_FLAGS "-g")
 
 include_directories(.)

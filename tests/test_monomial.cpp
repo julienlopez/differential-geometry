@@ -1,10 +1,3 @@
-/*
- * test_monomial.cpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
 #include <gtest/gtest.h>
 
 #include <cmath>

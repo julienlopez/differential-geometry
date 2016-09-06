@@ -1,12 +1,4 @@
-/*
- * scalar.hpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
-#ifndef SCALAR_HPP_
-#define SCALAR_HPP_
+#pragma once
 
 #include "iexpression.hpp"
 
@@ -29,5 +21,3 @@ private:
 
     virtual void impl_display(std::ostream& o) const override;
 };
-
-#endif /* SCALAR_HPP_ */

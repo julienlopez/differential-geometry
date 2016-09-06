@@ -3,15 +3,13 @@
 #include "expression/monomial.hpp"
 #include "expression/scalar.hpp"
 
-#include "utils/make_unique.hpp"
-
 #include <gtest/gtest.h>
 
 #include <cmath>
 
 struct TestSineOfScalar : public ::testing::Test
 {
-    const Sine s = {utils::make_unique<Scalar>(10)};
+    const Sine s = {std::make_unique<Scalar>(10)};
 };
 
 TEST_F(TestSineOfScalar, ComputeValue)
@@ -35,7 +33,7 @@ TEST_F(TestSineOfScalar, Display)
 struct TestSineOfMonomial : public ::testing::Test
 {
     const Variable var {"t"};
-    const Sine s {utils::make_unique<Monomial>(var, 10)};
+    const Sine s {std::make_unique<Monomial>(var, 10)};
 };
 
 TEST_F(TestSineOfMonomial, ComputeValue)
@@ -58,7 +56,7 @@ TEST_F(TestSineOfMonomial, Display)
 
 struct TestCosineOfScalar : public ::testing::Test
 {
-    const Cosine c = {utils::make_unique<Scalar>(10)};
+    const Cosine c = {std::make_unique<Scalar>(10)};
 };
 
 TEST_F(TestCosineOfScalar, ComputeValue)
@@ -82,7 +80,7 @@ TEST_F(TestCosineOfScalar, Display)
 struct TestCosineOfMonomial : public ::testing::Test
 {
     const Variable var {"t"};
-    const Cosine c {utils::make_unique<Monomial>(var, 10)};
+    const Cosine c {std::make_unique<Monomial>(var, 10)};
 };
 
 TEST_F(TestCosineOfMonomial, ComputeValue)

@@ -1,12 +1,4 @@
-/*
- * iExpression.hpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
-#ifndef IEXPRESSION_HPP_
-#define IEXPRESSION_HPP_
+#pragma once
 
 #include <iosfwd>
 #include <map>
@@ -48,5 +40,3 @@ private:
     virtual void impl_display(std::ostream& o) const = 0;
 
 };
-
-#endif /* IEXPRESSION_HPP_ */

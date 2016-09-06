@@ -1,12 +1,4 @@
-/*
- * variable.hpp
- *
- *  Created on: 4 févr. 2015
- *      Author: lopez
- */
-
-#ifndef VARIABLE_HPP_
-#define VARIABLE_HPP_
+#pragma once
 
 #include <string>
 
@@ -29,5 +21,3 @@ public:
 };
 
 bool operator<(const Variable& v1, const Variable& v2);
-
-#endif /* VARIABLE_HPP_ */
