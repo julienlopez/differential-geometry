@@ -12,7 +12,6 @@ script:
 
 before_install:
   - chmod 755 build_all.sh
-  - chmod 755 tests.sh
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -qq
   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.9; fi
