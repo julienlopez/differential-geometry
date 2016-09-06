@@ -14,4 +14,4 @@ struct noncopiable
 	noncopiable& operator=(noncopiable&&) noexcept = default;
 };
 
-}
+} // utils
