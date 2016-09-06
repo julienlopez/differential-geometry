@@ -43,11 +43,9 @@ TEST_F(TestMonomialPowerOfOne, DerivateSameVariable)
 TEST_F(TestMonomialPowerOfOne, DerivateOtherVariable)
 {
 	auto d = m.derivative(Variable("a"));
-	const auto* m2 = dynamic_cast<Monomial*>(d.get());
-	ASSERT_TRUE(m2);
-	ASSERT_EQ(factor, m2->factor());
-	ASSERT_EQ(variable, m2->variable());
-	ASSERT_EQ(power, m2->power());
+	const auto* s = dynamic_cast<Scalar*>(d.get());
+	ASSERT_TRUE(s);
+	ASSERT_EQ(0., s->value());
 }
 
 TEST_F(TestMonomialPowerOfOne, Value)
